@@ -1,0 +1,62 @@
+# voice-agent-tool-skill TTS 配置
+# 支持多种 TTS 后端，通过 profile 名称引用
+
+# 默认 TTS 后端
+default_provider: "mimo"
+
+# TTS 提供商配置
+providers:
+  mimo:
+    type: "api"
+    endpoint: "https://api.xiaomimimo.com/v1/chat/completions"
+    api_key_env: "MIMO_API_KEY"
+    model: "mimo-v2.5-tts"
+    use_chat_format: true
+    profiles:
+      clear-slow:
+        voice: ""
+        speed: 0.85
+        description: "清晰慢速，适合严肃/比喻风格"
+      casual:
+        voice: ""
+        speed: 1.0
+        description: "自然语速，适合幽默/对话风格"
+      warm:
+        voice: ""
+        speed: 0.9
+        description: "温暖中速，适合故事风格"
+
+  openai:
+    type: "api"
+    endpoint: "https://api.openai.com/v1/audio/speech"
+    api_key_env: "OPENAI_API_KEY"
+    model: "tts-1"
+    profiles:
+      clear-slow:
+        voice: "alloy"
+        speed: 0.85
+      casual:
+        voice: "nova"
+        speed: 1.0
+      warm:
+        voice: "echo"
+        speed: 0.9
+
+  edge-tts:
+    type: "local"
+    profiles:
+      clear-slow:
+        voice: "zh-CN-YunxiNeural"
+        rate: "-15%"
+      casual:
+        voice: "zh-CN-YunyangNeural"
+        rate: "+0%"
+      warm:
+        voice: "zh-CN-XiaoxiaoNeural"
+        rate: "-5%"
+
+# 输出目录
+output:
+  dir: "output"
+  format: "mp3"
+  naming: "{style}_{timestamp}"

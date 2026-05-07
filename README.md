@@ -7,12 +7,7 @@ Hermes Agent 语音生成 Skill —— 多风格 TTS 语音生成。
 作为 Hermes Agent Skill 使用，由 Agent 在对话中完成全流程：
 1. 信息搜集（用户输入 / MD 文件 / 网络搜索）
 2. 风格化处理（5 种风格可选）
-3. 调用 voice-agent-tool 服务生成音频
-
-## 依赖
-
-- Hermes Agent
-- voice-agent-tool 服务（/opt/voice-agent-tool/）
+3. TTS 语音生成（Mimo / OpenAI / edge-tts）
 
 ## 风格
 
@@ -37,6 +32,9 @@ Hermes Agent 语音生成 Skill —— 多风格 TTS 语音生成。
 voice-agent-tool-skill/
 ├── SKILL.md              # Skill 定义
 ├── config/
-│   └── styles.yaml       # 风格预设
+│   ├── styles.yaml       # 风格预设
+│   └── tts.yaml          # TTS 配置
+├── scripts/
+│   └── setup.sh          # 初始化脚本
 └── README.md
 ```
