@@ -1,0 +1,57 @@
+# voice-agent-tool 风格预设
+# prompt_template 中的 {content} 会被替换为实际内容
+# tts_profile 引用 tts.yaml 中的 profiles 名称
+
+styles:
+  serious:
+    name: "严肃教学"
+    prompt_template: |
+      请用严肃教学的风格改写以下内容。要求：
+      - 语言正式、准确、逻辑清晰
+      - 使用专业术语，但会适当解释
+      - 语气权威但不生硬
+      内容：{content}
+    tts_profile: "clear-slow"
+
+  humor:
+    name: "幽默风趣"
+    prompt_template: |
+      请用幽默风趣的风格改写以下内容。要求：
+      - 语言轻松活泼，适当使用比喻和类比
+      - 穿插生活中的例子
+      - 让学习者感到愉快和放松
+      内容：{content}
+    tts_profile: "casual"
+
+  story:
+    name: "故事叙述"
+    prompt_template: |
+      请用讲故事的方式改写以下内容。要求：
+      - 将知识点融入具体场景或故事中
+      - 语言生动有画面感
+      - 有情节推进，让内容像故事一样自然
+      内容：{content}
+    tts_profile: "warm"
+
+  analogy:
+    name: "比喻类比"
+    prompt_template: |
+      请用大量类比和比喻的方式改写以下内容。要求：
+      - 每个核心概念至少用一个生活化的类比解释
+      - 类比要贴近日常生活，容易想象
+      - 避免纯理论叙述
+      内容：{content}
+    tts_profile: "clear-slow"
+
+  conversational:
+    name: "对话互动"
+    prompt_template: |
+      请用对话互动的方式改写以下内容。要求：
+      - 像和朋友聊天一样自然
+      - 在关键处提出反问，引导思考
+      - 使用"你知道吗"、"想象一下"等互动语
+      内容：{content}
+    tts_profile: "casual"
+
+defaults:
+  style: "serious"
